@@ -14,7 +14,7 @@ footer{
         text-align:center;
     }
         footer ul li{
-            margin:.2rem;
+            margin:0 .2rem;
         }
     footer a{
         cursor: pointer;

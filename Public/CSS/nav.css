@@ -7,13 +7,6 @@ nav{
     min-height:10vh;
     width:100vw;
 }
-    nav img{
-        max-height:6vh;
-        min-width:5rem;
-        max-width:10vw;
-        width:10vw;
-        padding:.5rem;
-    }
     nav ul{
         display:flex;
         justify-content:space-around;
