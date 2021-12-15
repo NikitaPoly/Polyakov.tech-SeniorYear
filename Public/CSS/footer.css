@@ -1,0 +1,28 @@
+footer{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    background-color:var(--darkColor--);
+    max-width:100vw;
+    min-height:10vh;
+    max-height:10vh;
+    color:var(--lightColor--)
+}
+    footer ul{
+        list-style:none;
+        text-align:center;
+    }
+        footer ul li{
+            margin:.2rem;
+        }
+    footer a{
+        cursor: pointer;
+    }
+    footer button{
+        background-color:inherit;
+        border:none;
+        color:var(--lightColor--);
+        font-weight: bolder;
+        font-size: 1.23rem;
+        cursor: pointer;
+    }
