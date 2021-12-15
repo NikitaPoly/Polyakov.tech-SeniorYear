@@ -1,0 +1,71 @@
+/*File responsible for how the navigation bar is displayed*/
+nav{
+    display:flex;
+    align-items:center;
+    background-color:var(--darkColor--);
+    max-height:10vh;
+    min-height:10vh;
+    width:100vw;
+}
+    nav img{
+        max-height:6vh;
+        min-width:5rem;
+        max-width:10vw;
+        width:10vw;
+        padding:.5rem;
+    }
+    nav ul{
+        display:flex;
+        justify-content:space-around;
+        width:90vw;
+        list-style:none;
+        color:var(--lightColor--)
+    }
+        nav ul li{
+            width:20%;
+            max-width:20%;
+        }
+            nav ul li a{
+                font-weight:bold;
+                font-style:italic;
+                font-size:2.5rem;
+                padding:.5rem;
+                animation-fill-mode: forwards;
+                animation-name:OUThooverOnfade;
+                animation-duration:.35s;
+            }
+/*active page nave bar style*/
+nav ul li a#active{
+    background-color:var(--darkGreen--);
+    animation-name:none;
+    color:var(--darkColor--);
+    padding-bottom:3rem;
+}
+/*Animation and Effects*/
+nav ul li a:hover{
+    color:var(--darkColor--);
+    animation-name:INhooverOnfade;
+    animation-duration:.75s;
+    cursor:pointer;
+}
+@keyframes INhooverOnfade{
+    from{
+        background-color:var(--darkColor--);
+        color:var(--lightColor--);
+    }
+    to{
+        background-color:var(--lightGreen--);
+        color:var(--darkColor--);
+    }
+}
+@keyframes OUThooverOnfade{
+    to{
+        background-color:var(--darkColor--);
+        color:var(--lightColor--);
+    }
+    from{
+        background-color:var(--lightGreen--);
+        color:var(--darkColor--);
+    }
+}
+/*media query and responsive code here*/
