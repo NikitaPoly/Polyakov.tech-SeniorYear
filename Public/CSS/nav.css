@@ -31,10 +31,10 @@ nav{
                 font-size:2.5rem;
                 padding:.5rem;
                 animation-fill-mode: forwards;
-                animation-name:OUThooverOnfade;
+                animation-name:OUThoverOnfade;
                 animation-duration:.35s;
             }
-/*active page nave bar style*/
+/*active page nav bar style*/
 nav ul li a#active{
     background-color:var(--darkGreen--);
     animation-name:none;
@@ -44,11 +44,11 @@ nav ul li a#active{
 /*Animation and Effects*/
 nav ul li a:hover{
     color:var(--darkColor--);
-    animation-name:INhooverOnfade;
+    animation-name:INhoverOnfade;
     animation-duration:.75s;
     cursor:pointer;
 }
-@keyframes INhooverOnfade{
+@keyframes INhoverOnfade{
     from{
         background-color:var(--darkColor--);
         color:var(--lightColor--);
@@ -58,7 +58,7 @@ nav ul li a:hover{
         color:var(--darkColor--);
     }
 }
-@keyframes OUThooverOnfade{
+@keyframes OUThoverOnfade{
     to{
         background-color:var(--darkColor--);
         color:var(--lightColor--);
