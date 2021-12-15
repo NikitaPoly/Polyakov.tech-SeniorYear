@@ -1,0 +1,91 @@
+/*responsible for are home page sppesific styles*/
+body{
+    background-image: linear-gradient(to bottom, rgba(55, 150, 131, .65) 0%,rgba(55, 150, 131, .4) 100%), url("../Images/Tree.jpg");
+}
+main{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+    main article{
+        width:33vw;
+        text-align: center;
+    }
+        main article h2,main article h1{
+            color:var(--lightColor--);
+            font-size:3.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+        main article ul{
+            background-color:var(--lightColor--);
+            border:.3rem solid var(--darkColor--);
+            list-style:none;
+            padding: .75rem;
+            min-height: 60vh;
+            max-width:23vw;
+            margin: auto;
+        }
+            main article ul li{
+                text-align:left;
+                border-bottom: .1rem solid var(--darkColor--);
+            }
+                main article ul li h3{
+                    color:var(--darkColor--);
+                }
+                main article ul li p{
+                    text-indent:.5rem;
+                    margin-left:1rem;
+                    margin-bottom:1rem;
+                }
+    main article#Social{
+        display: flex;
+        flex-flow:column;
+        align-items:center;
+        justify-content: space-around;
+    }
+        main article#Social a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: x-large;
+            font-weight: bold;
+            cursor: pointer;
+            color:var(--lightColor--);
+            margin: 3rem 0;
+        }
+            main article#Social a img{
+                height: 6rem;
+            }
+            main article#Social a address{
+                font-style: normal;
+                margin-left: .3rem;
+            }
+/*over write rules*/
+nav ul li a#active{
+    padding: .2rem;
+}
+/*Animaton and effects*/
+main article.shadow ul:hover{
+    animation-name:INhoverArticle;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+main article.shadow ul{
+    animation-name:OUTthoverArticle;
+                animation-duration: .5s;
+                animation-fill-mode: forwards;
+}
+@keyframes INhoverArticle {
+    to{
+        filter: drop-shadow(10px 10px 10px var(--lightGreen--));
+    }
+}
+@keyframes OUTthoverArticle {
+    from{
+        filter: drop-shadow(10px 10px 10px var(--lightGreen--));  
+    }
+    to{
+        filter: drop-shadow(0px 0px 0px var(--lightGreen--))
+    }
+}
