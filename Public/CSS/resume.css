@@ -61,7 +61,7 @@ main{
             font-size: 1.3rem;
         }
 body{
-    background-image: linear-gradient(to bottom, rgba(5, 56, 107, .5) 0%,rgba(5, 56, 107, .1) 100%), url("../Images/city.jpg");
+    background-image: linear-gradient(to bottom, rgba(5, 56, 107, .8) 0%,rgba(5, 56, 107, .1) 100%), url("../Images/city.jpg");
 }
 /*main >*{
     border: .1rem solid black;

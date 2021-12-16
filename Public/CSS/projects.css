@@ -1,5 +1,5 @@
 body{
-    background-image: linear-gradient(to bottom, rgba(237, 245, 225, .5) 0%,rgba(237, 245, 225, .3) 100%), url("../Images/clouds3.jpg");
+    background-image: linear-gradient(to bottom, rgba(237, 245, 225, .8) 0%,rgba(237, 245, 225, .5) 100%), url("../Images/clouds3.jpg");
 }
 main{
     display:flex;
