@@ -1,0 +1,35 @@
+main{
+    color:var(--lightColor--);
+    font-size:2rem;
+    text-align: center;
+}
+    main p{
+        margin-top: 4rem;
+    }
+    main h1{
+        color:var(--lightColor--);
+    }
+        main div#bannerDiv{
+            text-align: center;
+            background-color: var(--darkGreen--);
+        }
+            main div#bannerDiv h1{
+                font-size: 3rem;
+                font-weight: 600;
+            }
+                main div#bannerDiv ul li{
+                    display: inline-block;
+                    margin: 1rem 4rem;
+                }
+                    main div#bannerDiv ul li button{
+                        color:var(--lightColor--);
+                        background-color: var(--darkGreen--);
+                        border-color: var(--lightColor--);
+                        padding: 1rem;
+                        font-size: 1rem;
+                    }
+                    
+/*over write previus settings*/
+body{
+    background-color: var(--mainGreen--);
+}
