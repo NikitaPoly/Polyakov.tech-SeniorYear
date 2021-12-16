@@ -1,0 +1,92 @@
+/*responsible for all the resume styles*/
+main{
+    display: grid;
+    padding: 0 1rem;
+    grid-column-gap:1rem;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 1.3fr .6fr 3fr;
+    grid-template-areas: "header header header";
+    text-align: center;
+}
+        main h1{
+            grid-area: header;
+            align-self: center;
+            font-weight:450;
+            font-style: italic;
+            font-size: 3rem;
+        }
+        main h2{
+            font-weight: 400;
+            font-size: 2.3rem;
+            padding: .55rem;
+            font-style: italic;
+        }
+        main h2,main h1{
+            color:var(--lightColor--);
+        }
+        main a{
+            color:var(--lightColor--);
+            align-self: center;
+            justify-self:center;
+            width:5rem;
+            padding:.3rem .5rem;
+            border-radius:.95rem;
+            font-size: 1.3rem;
+            border: none;
+
+        }
+            main a:active{
+                filter: drop-shadow(3px 2px 3px var(--lightGreen--))
+            }
+        main a#linkLI{
+            background-color:var(--linkedInBlue--);
+        }
+        main a#linkPDF{
+            background-color:var(--pdfRed--);
+        }
+        main a#linkGithub{
+            background-color:var(--githubGray--);
+        }
+        main p, main ul{
+            background-color: var(--lightColor--);
+            border:.25rem solid var(--darkColor--);
+            padding: 1.5rem;
+            text-align: left;
+            text-indent: .5rem;
+            height: 30vh;
+        }
+        main ul{
+            list-style: none;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+body{
+    background-image: linear-gradient(to bottom, rgba(5, 56, 107, .5) 0%,rgba(5, 56, 107, .1) 100%), url("../Images/city.jpg");
+}
+/*main >*{
+    border: .1rem solid black;
+} for debugiing */
+/*animations */
+main article:hover{
+    animation-name:INhoverArticle;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+main article {
+    animation-name:OUTthoverArticle;
+                animation-duration: .5s;
+                animation-fill-mode: forwards;
+}
+@keyframes INhoverArticle {
+    to{
+        filter: drop-shadow(10px 10px 10px var(--lightColor--));
+    }
+}
+@keyframes OUTthoverArticle {
+    from{
+        filter: drop-shadow(10px 10px 10px var(--lightColor--));  
+    }
+    to{
+        filter: drop-shadow(0px 0px 0px var(--lightColor--))
+    }
+}

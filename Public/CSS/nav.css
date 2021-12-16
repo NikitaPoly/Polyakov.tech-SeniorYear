@@ -32,7 +32,7 @@ nav ul li a#active{
     background-color:var(--darkGreen--);
     animation-name:none;
     color:var(--darkColor--);
-    padding-bottom:3rem;
+    padding: .2rem;
 }
 /*Animation and Effects*/
 nav ul li a:hover{

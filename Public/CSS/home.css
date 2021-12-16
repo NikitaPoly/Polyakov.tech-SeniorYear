@@ -62,9 +62,7 @@ main{
                 margin-left: .3rem;
             }
 /*over write rules*/
-nav ul li a#active{
-    padding: .2rem;
-}
+
 /*Animaton and effects*/
 main article.shadow ul:hover{
     animation-name:INhoverArticle;
