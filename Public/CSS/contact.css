@@ -27,6 +27,7 @@ main{
                         border-color: var(--lightColor--);
                         padding: 1rem;
                         font-size: 1rem;
+                        font-weight: bold;
                     }
                     
 /*over write previus settings*/
