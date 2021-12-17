@@ -1,0 +1,22 @@
+{
+  "name": "polyakov.tech-senioryear",
+  "version": "1.0.0",
+  "description": "Polyakov.tech made pre senior project\r 12/14/21",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaPoly/Polyakov.tech-SeniorYear.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaPoly/Polyakov.tech-SeniorYear/issues"
+  },
+  "homepage": "https://github.com/NikitaPoly/Polyakov.tech-SeniorYear#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  }
+}
