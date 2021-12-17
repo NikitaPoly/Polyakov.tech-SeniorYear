@@ -1,0 +1,28 @@
+div#ecard{
+    display: none;
+    padding: 5vh 5vw;
+}
+@media only screen and (hover:none) and (orientation :landscape) {
+    nav, main, footer{
+        display: none;
+    }
+    div#ecard{
+        display: inline-block;
+        width: 90vw;
+        height: 90vh;
+        background-color:var(--darkColor--);
+        color:var(--lightColor--);
+    }
+    div#ecard h4{
+        font-size: 4rem;
+    }
+    div#ecard h5{
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    div#ecard ul{
+        margin: 1rem 0;
+        display: flex;
+        justify-content: space-around
+    }
+}
