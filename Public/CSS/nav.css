@@ -64,7 +64,7 @@ nav ul li a:hover{
 /*styles for mobile*/
 @media only screen and (max-width: 1000px){
     nav ul li a{
-        font-size: 1rem;
+        font-size: 3.5vw;
     }
     nav img#logoNav{
         max-width: .1vw;
