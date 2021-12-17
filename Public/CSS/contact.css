@@ -29,7 +29,12 @@ main{
                         font-size: 1rem;
                         font-weight: bold;
                     }
-                    
+ main div#formDiv form fieldset{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border: none;
+ }           
 /*over write previus settings*/
 body{
     background-color: var(--mainGreen--);
@@ -37,5 +42,8 @@ body{
 @media only screen and (max-width: 1000px){
     div#formDiv p{
         margin: 1rem 0;
+    }
+    div#formDiv{
+        min-height: 50vh;
     }
 }

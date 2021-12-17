@@ -10,6 +10,9 @@ main{
     main article{
         width:33vw;
         text-align: center;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
     }
         main article h2,main article h1{
             color:var(--lightColor--);
