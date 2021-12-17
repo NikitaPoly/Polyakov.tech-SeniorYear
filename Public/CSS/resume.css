@@ -93,3 +93,25 @@ main article {
         filter: drop-shadow(0px 0px 0px var(--lightColor--))
     }
 }
+@media only screen and (max-width: 1000px){
+    body{
+        background-image: none;
+    }
+    main h1{
+        font-size: 2rem;
+    }
+    main{
+        display: grid;
+        padding: 0 1rem;
+        grid-template-columns:1fr;
+        grid-template-rows: 1.3fr;
+        grid-template-areas: "header";
+        text-align: center;
+    }
+    main a{
+        margin: 1rem 0;
+    }
+    main article{
+        margin-bottom: 1rem;
+    }
+ } 

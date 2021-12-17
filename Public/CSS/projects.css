@@ -58,3 +58,15 @@ main article {
         filter: drop-shadow(0px 0px 0px var(--darkColor--))
     }
 }
+@media only screen and (max-width: 1000px){
+    main{
+        flex-flow: column;
+    }
+    main article{
+        min-width: 60vw;
+        margin: 1rem 0;
+    }
+    body{
+        background-image: none;
+    }
+}

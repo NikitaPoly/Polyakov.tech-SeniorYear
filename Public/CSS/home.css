@@ -24,7 +24,6 @@ main{
             padding: .75rem;
             min-height: 60vh;
             max-width:23vw;
-            margin: auto;
         }
             main article ul li{
                 text-align:left;
@@ -87,3 +86,24 @@ main article.shadow ul{
         filter: drop-shadow(0px 0px 0px var(--lightGreen--))
     }
 }
+/*styles for mobile*/
+@media only screen and (max-width: 1000px){
+   main{
+       flex-flow: column;
+       align-items: center;
+       text-align: center;
+   }
+   body{
+       background-image: none;
+   }
+   main article {
+       display: flex;
+       justify-content: center;
+       flex-flow:column;
+       align-items: center;
+       margin-bottom: 1rem;
+   }
+    main article ul{
+        min-width: 50vw;
+    }
+} 

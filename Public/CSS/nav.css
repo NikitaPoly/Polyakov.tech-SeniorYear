@@ -61,4 +61,15 @@ nav ul li a:hover{
         color:var(--darkColor--);
     }
 }
-/*media query and responsive code here*/
+/*styles for mobile*/
+@media only screen and (max-width: 1000px){
+    nav ul li a{
+        font-size: 1rem;
+    }
+    nav img#logoNav{
+        max-width: .1vw;
+    }
+    nav ul li a{
+        padding: 0;
+    }
+}

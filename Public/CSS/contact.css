@@ -34,3 +34,11 @@ main{
 body{
     background-color: var(--mainGreen--);
 }
+@media only screen and (max-width: 1000px){
+    div#formDiv p{
+        margin: 1rem 0;
+    }
+    body{
+        background-image: none;
+    }
+}

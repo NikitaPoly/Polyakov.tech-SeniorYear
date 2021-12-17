@@ -27,3 +27,15 @@ footer{
         font-size: 1.23rem;
         cursor: pointer;
     }
+@media only screen and (max-width: 1000px){
+    footer button{
+        display:none;
+    }
+    footer img#logoFooter{
+        display: none;
+    }
+    footer ul li {
+        margin: 0;
+        font-size: .7rem;
+    }
+}
