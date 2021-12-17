@@ -3,6 +3,9 @@ main{
     font-size:2rem;
     text-align: center;
 }
+    main input, main textarea{
+        color: black;
+    }
     main p{
         margin-top: 4rem;
     }
@@ -34,7 +37,20 @@ main{
     flex-flow: column;
     align-items: center;
     border: none;
- }           
+ }     
+fieldset textarea{
+     resize: none;
+     width: 50vw;
+     height: 20vh;
+ }
+ fieldset input[type="submit"]{
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: var(--darkGreen--);
+    color:var(--lightColor--);
+    border-color: var(--lightColor--);
+}
 /*over write previus settings*/
 body{
     background-color: var(--mainGreen--);
