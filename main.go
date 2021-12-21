@@ -63,6 +63,11 @@ func sendError(w http.ResponseWriter) {
 	errorPage, _ := ioutil.ReadFile("./Public/HTML/404.html")
 	w.Write(errorPage)
 }
+func sendIcon(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader((http.StatusOK))
+	icon, _ := ioutil.ReadFile("./favicon.ico")
+	w.Write((icon))
+}
 
 //main function for server
 func main() {
@@ -71,6 +76,8 @@ func main() {
 	for i := 0; i < len(listOFHomeSite); i++ {
 		http.HandleFunc(listOFHomeSite[i], serveHTMLForHomeSite)
 	}
+	//if favorite icon is request use this path
+	http.HandleFunc("/favicon.ico", sendIcon)
 	//run the server
 	if err := http.ListenAndServe(":8081", nil); err != nil {
 		log.Fatal(err)
