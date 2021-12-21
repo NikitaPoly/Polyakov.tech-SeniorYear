@@ -18,14 +18,12 @@ func sendPublicResources(w http.ResponseWriter, r *http.Request) {
 	mimeconverter[".js"] = "text/javascript"
 	extension := "." + strings.Split(r.URL.Path, ".")[1]
 	resourceToSend, err := ioutil.ReadFile("./" + r.URL.Path)
-	fmt.Println(r.URL.Path)
 	if err != nil {
 		sendError(w)
 		return
 	}
 	w.Header().Set("content-type", string(mimeconverter[extension]))
 	w.WriteHeader(http.StatusOK)
-	fmt.Println(mimeconverter[extension])
 	w.Write(resourceToSend)
 }
 
@@ -38,17 +36,25 @@ func serveHTMLForHomeSite(w http.ResponseWriter, r *http.Request) {
 	} else if r.URL.Path == "/" {
 		r.URL.Path = "/home"
 	}
-	//set path and send file
-	path := "./Public/HTML" + r.URL.Path + ".html"
-	path = strings.ToLower(path)
-	//Reaf file check for erro and then send correspinding html
-	htmlTosend, err := ioutil.ReadFile(path)
-	if err != nil {
+	fmt.Println(r.Method)
+	switch r.Method {
+	case "GET":
+		//set path and send file
+		path := "./Public/HTML" + r.URL.Path + ".html"
+		path = strings.ToLower(path)
+		//Reaf file check for erro and then send correspinding html
+		htmlTosend, err := ioutil.ReadFile(path)
+		if err != nil {
+			sendError(w)
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+		w.Write(htmlTosend)
+	case "POST":
+		fmt.Println("Post")
+	default:
 		sendError(w)
-		return
 	}
-	w.WriteHeader(http.StatusOK)
-	w.Write(htmlTosend)
 }
 
 //Used to send the error 404page
