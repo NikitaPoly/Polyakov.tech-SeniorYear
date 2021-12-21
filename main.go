@@ -2,11 +2,21 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
-	"log"
 	"net/http"
 	"strings"
 )
+
+const MongoURI = "mongodb+srv://PolyakovDOTTech:123abc@polyakovtechdb.n6fvv.mongodb.net/PolyakovTechDB?retryWrites=true&w=majority"
+
+func acceptPostFromContact(w http.ResponseWriter, r *http.Request) {
+	message, _ := io.ReadAll(r.Body)
+	fmt.Println(string(message))
+	thankyouPage, _ := ioutil.ReadFile("./Public/HTML/thankyou.html")
+	w.WriteHeader(http.StatusOK)
+	w.Write(thankyouPage)
+}
 
 //Send public resource
 func sendPublicResources(w http.ResponseWriter, r *http.Request) {
@@ -30,7 +40,7 @@ func sendPublicResources(w http.ResponseWriter, r *http.Request) {
 //Servs the basic polyakov.tech/ paths for get only
 func serveHTMLForHomeSite(w http.ResponseWriter, r *http.Request) {
 	//if public then send to public folder acces
-	if strings.Contains(r.URL.Path, "/Public") {
+	if strings.Contains(r.URL.Path, "/Public") && r.Method == "GET" {
 		sendPublicResources(w, r)
 		return
 	} else if r.URL.Path == "/" {
@@ -39,7 +49,7 @@ func serveHTMLForHomeSite(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r.Method)
 	switch r.Method {
 	case "GET":
-		//set path and send file
+		//set path
 		path := "./Public/HTML" + r.URL.Path + ".html"
 		path = strings.ToLower(path)
 		//Reaf file check for erro and then send correspinding html
@@ -51,7 +61,12 @@ func serveHTMLForHomeSite(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusOK)
 		w.Write(htmlTosend)
 	case "POST":
-		fmt.Println("Post")
+		//check if post is on contact page
+		if r.URL.Path != "/contact" {
+			sendError(w)
+			return
+		}
+		acceptPostFromContact(w, r)
 	default:
 		sendError(w)
 	}
@@ -80,6 +95,6 @@ func main() {
 	http.HandleFunc("/favicon.ico", sendIcon)
 	//run the server
 	if err := http.ListenAndServe(":8081", nil); err != nil {
-		log.Fatal(err)
+		fmt.Println("cant start")
 	}
 }
