@@ -7,6 +7,9 @@ main{
     justify-content: center;
     align-items: center;
 }
+    main article#Info ul p {
+        text-align: left;
+    }
     main article{
         width:33vw;
         text-align: center;
