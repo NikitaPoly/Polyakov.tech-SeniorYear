@@ -6,6 +6,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 const MongoURI = "mongodb+srv://PolyakovDOTTech:123abc@polyakovtechdb.n6fvv.mongodb.net/PolyakovTechDB?retryWrites=true&w=majority"
@@ -13,6 +16,8 @@ const MongoURI = "mongodb+srv://PolyakovDOTTech:123abc@polyakovtechdb.n6fvv.mong
 func acceptPostFromContact(w http.ResponseWriter, r *http.Request) {
 	message, _ := io.ReadAll(r.Body)
 	fmt.Println(string(message))
+	client, _ := mongo.NewClient(options.Client().ApplyURI(MongoURI))
+	fmt.Println(client)
 	thankyouPage, _ := ioutil.ReadFile("./Public/HTML/thankyou.html")
 	w.WriteHeader(http.StatusOK)
 	w.Write(thankyouPage)
