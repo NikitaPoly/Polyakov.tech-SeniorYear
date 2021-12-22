@@ -1,11 +1,12 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -14,10 +15,32 @@ import (
 const MongoURI = "mongodb+srv://PolyakovDOTTech:123abc@polyakovtechdb.n6fvv.mongodb.net/PolyakovTechDB?retryWrites=true&w=majority"
 
 func acceptPostFromContact(w http.ResponseWriter, r *http.Request) {
-	message, _ := io.ReadAll(r.Body)
-	fmt.Println(string(message))
-	client, _ := mongo.NewClient(options.Client().ApplyURI(MongoURI))
-	fmt.Println(client)
+	r.ParseForm()
+	objectToSend := make(map[string]string)
+	for key, value := range r.Form {
+		objectToSend[key] = value[0]
+	}
+	//get client for mongodb
+	client, err := mongo.NewClient(options.Client().ApplyURI(MongoURI))
+	if err != nil {
+		sendError(w)
+		return
+	}
+	//connext to mongodb using client with 10 second timeout limit
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	if err = client.Connect(ctx); err != nil {
+		sendError(w)
+		return
+	}
+	//after function is done running this will will run
+	defer client.Disconnect(ctx)
+	PolyakovTechDB := client.Database("PolyakovTechDB")
+	ButtonGameLeaderBoard := PolyakovTechDB.Collection("ContactRequest")
+	result, err := ButtonGameLeaderBoard.InsertOne(ctx, objectToSend)
+	if err != nil {
+		fmt.Println("error")
+	}
+	fmt.Println(result.InsertedID)
 	thankyouPage, _ := ioutil.ReadFile("./Public/HTML/thankyou.html")
 	w.WriteHeader(http.StatusOK)
 	w.Write(thankyouPage)
