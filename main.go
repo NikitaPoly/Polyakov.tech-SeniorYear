@@ -12,7 +12,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-const MongoURI = "mongodb+srv://PolyakovDOTTech:123abc@polyakovtechdb.n6fvv.mongodb.net/PolyakovTechDB?retryWrites=true&w=majority"
+const MongoURI = "****" //MongoDB uri is here but redacted for security reasons
 
 func acceptPostFromContact(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
