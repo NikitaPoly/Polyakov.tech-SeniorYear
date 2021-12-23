@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 	"time"
 
@@ -12,7 +13,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-const MongoURI = "****" //MongoDB uri is here but redacted for security reasons
+const MongoURI = "***" //redacted for security reasosns this is my mongo uri
 
 func acceptPostFromContact(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
@@ -74,15 +75,17 @@ func serveHTMLForHomeSite(w http.ResponseWriter, r *http.Request) {
 	} else if r.URL.Path == "/" {
 		r.URL.Path = "/home"
 	}
-	fmt.Println(r.Method)
 	switch r.Method {
 	case "GET":
 		//set path
-		path := "./Public/HTML" + r.URL.Path + ".html"
-		path = strings.ToLower(path)
+		path := strings.ToLower(r.URL.Path)
+		path = "./Public/HTML" + path + ".html"
+		fmt.Println(path)
 		//Reaf file check for erro and then send correspinding html
 		htmlTosend, err := ioutil.ReadFile(path)
+		fmt.Println(path)
 		if err != nil {
+			fmt.Println("error")
 			sendError(w)
 			return
 		}
@@ -114,6 +117,14 @@ func sendIcon(w http.ResponseWriter, r *http.Request) {
 
 //main function for server
 func main() {
+	port := os.Getenv("PORT")
+	fmt.Println(port)
+	if port == "" {
+		port = ":8080"
+	} else {
+		port = ":" + port
+	}
+	fmt.Println(port)
 	listOFHomeSite := [10]string{"/home", "/Home", "/resume", "/Resume", "/projects", "/Projects", "/contact", "/Contact", "/Public/", "/"}
 	//register each polyakov.tech html page handler
 	for i := 0; i < len(listOFHomeSite); i++ {
@@ -122,7 +133,7 @@ func main() {
 	//if favorite icon is request use this path
 	http.HandleFunc("/favicon.ico", sendIcon)
 	//run the server
-	if err := http.ListenAndServe(":8081", nil); err != nil {
+	if err := http.ListenAndServe(port, nil); err != nil {
 		fmt.Println("cant start")
 	}
 }
