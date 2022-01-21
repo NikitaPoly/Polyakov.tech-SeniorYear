@@ -6,9 +6,12 @@ main{
     display:flex;
     justify-content: center;
     align-items: center;
-}
-    main article#Info ul p {
+}   
+    main article ul  {
         text-align: left;
+        overflow-y: scroll;
+        max-height: 50vh;
+        min-height: 50vh;
     }
     main article{
         width:33vw;
